@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\WorkController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\TagController;
 use Illuminate\Support\Facades\Auth;
 
 /* Route::get('/user', function (Request $request) {
