@@ -21,12 +21,13 @@ use Illuminate\Support\Facades\Auth;
  */
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:login');
+Route::post('/refresh', [AuthController::class, 'refresh'])->middleware('throttle:6,1');
+Route::post('/logout', [AuthController::class, 'logout']);
     
-Route::middleware('auth:sanctum')->group( function () {
+Route::middleware('auth:api-jwt')->group( function () {
     Route::get('/me', [AuthController::class, 'me']);
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::post('/logout-all', [AuthController::class, 'logoutAll']);
     Route::apiResource('categories', CategoryController::class);
     Route::apiResource('authors', AuthorController::class);
     Route::apiResource('works', WorkController::class);
+    Route::apiResource('tags', TagController::class);
 });

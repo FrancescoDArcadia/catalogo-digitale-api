@@ -20,7 +20,7 @@ class AuthorResource extends JsonResource
             'name' => $this->name,
             'nationality' => $this->nationality,
             'birth_date' => $this->birth_date?->toDateString(),
-            'work_count' => $this->whenCounted('works'),
+            'works_count' => $this->whenCounted('works'),
             'works' => WorkResource::collection($this->whenLoaded('works')),
             'created_at' => $this->created_at->toIso8601String(),
         ];
